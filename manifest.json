@@ -1,0 +1,53 @@
+{
+  "name": "ZBooking — Đặt quảng cáo địa phương",
+  "short_name": "ZBooking",
+  "description": "Đặt quảng cáo trên mạng lưới Fanpage & Group địa phương Miền Trung – Nam Bộ",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B2438",
+  "theme_color": "#0B2438",
+  "lang": "vi",
+  "dir": "ltr",
+  "categories": ["business", "productivity"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-wide.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "ZBooking trên desktop"
+    },
+    {
+      "src": "/screenshot-narrow.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "ZBooking trên mobile"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Chọn kênh booking",
+      "short_name": "Kênh",
+      "description": "Xem danh sách kênh và bảng giá",
+      "url": "/#catalog",
+      "icons": [{ "src": "/icon-192.png", "sizes": "192x192" }]
+    }
+  ]
+}

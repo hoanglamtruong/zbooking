@@ -1,0 +1,23 @@
+
+services:
+  nginx:
+    image: nginx:alpine
+    container_name: zbooking_nginx
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:8200:80"   # chỉ bind localhost — Cloudflare Tunnel sẽ proxy vào
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - .:/var/www/zbooking:ro
+    healthcheck:
+      test: ["CMD", "wget", "-qO-", "http://localhost/manifest.json"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    networks:
+      - web
+
+networks:
+  web:
+    driver: bridge

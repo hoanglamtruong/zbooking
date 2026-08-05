@@ -1,0 +1,23 @@
+# Icons có thể tự generate
+icon-192.png
+icon-512.png
+apple-touch-icon.png
+
+# Scripts tạm
+check-system.sh
+setup.sh
+enable-https.sh
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Docker override
+docker-compose.override.yml

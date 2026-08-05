@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ZBooking — Đặt quảng cáo Fanpage & Group địa phương</title>
+<meta name="description" content="Đặt quảng cáo trên mạng lưới Fanpage & Group địa phương Miền Trung – Nam Bộ. Chọn kênh, nhận báo giá tức thì, không cần liên hệ từng trang.">
+<meta name="keywords" content="zbooking, quảng cáo địa phương, fanpage vũng tàu, booking quảng cáo, mạng lưới fanpage">
+<meta name="author" content="ZBooking – ZeeBee">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0B2438">
+
+<!-- PWA Manifest -->
+<link rel="manifest" href="/manifest.json">
+
+<!-- Apple PWA -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ZBooking">
+<link rel="apple-touch-icon" href="/icon-512.png">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://zbooking.zeebee.vn/">
+<meta property="og:title" content="ZBooking — Đặt quảng cáo Fanpage & Group địa phương">
+<meta property="og:description" content="Chọn kênh, gộp đơn, nhận báo giá tức thì — mạng lưới 40+ fanpage & group Miền Trung – Nam Bộ.">
+<meta property="og:image" content="https://zbooking.zeebee.vn/icon-512.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ZBooking — Đặt quảng cáo địa phương">
+<meta name="twitter:description" content="Mạng lưới 40+ fanpage & group. 3.2M+ follow. Báo giá tức thì.">
+
+<!-- Canonical -->
+<link rel="canonical" href="https://zbooking.zeebee.vn/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;900&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0B2438;
+    --ink-2:#123249;
+    --sand:#F3EBDA;
+    --sand-2:#EAE0C9;
+    --teal:#1C6E77;
+    --coral:#E85D3D;
+    --coral-dark:#C8482B;
+    --charcoal:#1E2328;
+    --slate:#5B6670;
+    --line: rgba(11,36,56,0.12);
+    --radius: 14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--sand);
+    color:var(--charcoal);
+    font-family:'Be Vietnam Pro', sans-serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .mono{font-family:'JetBrains Mono', monospace;}
+  a{color:inherit;}
+
+  /* NAV */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(243,235,218,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:16px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .logo{
+    font-weight:900; font-size:20px; letter-spacing:-0.02em;
+    display:flex; align-items:center; gap:8px;
+  }
+  .logo .dot{width:9px;height:9px;border-radius:50%;background:var(--coral);display:inline-block;}
+  .nav-links{display:flex; gap:28px; font-weight:600; font-size:14.5px; color:var(--ink-2);}
+  .nav-links a{text-decoration:none; opacity:0.85;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{
+    background:var(--coral); color:white; padding:10px 18px; border-radius:999px;
+    font-weight:700; font-size:14px; text-decoration:none; white-space:nowrap;
+  }
+  @media(max-width:860px){ .nav-links{display:none;} }
+
+  /* HERO */
+  .hero{
+    max-width:1180px; margin:0 auto; padding:64px 24px 40px;
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap:48px; align-items:start;
+  }
+  @media(max-width:940px){ .hero{grid-template-columns:1fr;} }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; font-weight:700;
+    color:var(--teal); text-transform:uppercase; letter-spacing:0.08em;
+    background:rgba(28,110,119,0.09); padding:6px 12px; border-radius:999px; margin-bottom:20px;
+  }
+  h1{
+    font-size:clamp(34px,4.6vw,54px); line-height:1.04; font-weight:900; letter-spacing:-0.025em;
+    margin:0 0 20px;
+  }
+  h1 em{
+    font-style:normal; color:var(--coral);
+  }
+  .hero p.lead{
+    font-size:17.5px; line-height:1.6; color:var(--slate); max-width:520px; margin:0 0 28px;
+  }
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--ink); color:white; padding:14px 26px; border-radius:10px;
+    font-weight:700; font-size:15px; text-decoration:none; display:inline-block;
+    transition:transform .15s ease;
+  }
+  .btn-primary:hover{transform:translateY(-1px);}
+  .btn-ghost{
+    border:1.5px solid var(--line); padding:14px 26px; border-radius:10px;
+    font-weight:700; font-size:15px; text-decoration:none; color:var(--ink); display:inline-block;
+  }
+  .hero-stats{display:flex; gap:32px; margin-top:36px; padding-top:24px; border-top:1px solid var(--line);}
+  .hero-stats div{display:flex; flex-direction:column;}
+  .hero-stats .num{font-family:'JetBrains Mono'; font-weight:700; font-size:22px; color:var(--ink);}
+  .hero-stats .lbl{font-size:12.5px; color:var(--slate); margin-top:2px;}
+
+  /* REACH METER — signature element */
+  .meter-card{
+    background:var(--ink); color:var(--sand); border-radius:20px; padding:28px;
+    box-shadow: 0 24px 60px -20px rgba(11,36,56,0.45);
+  }
+  .meter-head{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:6px;}
+  .meter-head h3{margin:0; font-size:15px; font-weight:700; letter-spacing:0.01em;}
+  .meter-head span{font-family:'JetBrains Mono'; font-size:11px; color:#8FA9B5;}
+  .meter-total{
+    font-family:'JetBrains Mono'; font-weight:700; font-size:40px; letter-spacing:-0.01em;
+    margin:6px 0 2px; color:#fff;
+  }
+  .meter-sub{font-size:13px; color:#9FB7C2; margin-bottom:20px;}
+  .meter-list{display:flex; flex-direction:column; gap:10px; margin-bottom:20px;}
+  .meter-item{
+    display:flex; align-items:center; gap:12px;
+    background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.08);
+    border-radius:10px; padding:11px 13px; cursor:pointer; transition:background .15s;
+  }
+  .meter-item:hover{background:rgba(255,255,255,0.09);}
+  .meter-item input{accent-color:var(--coral); width:16px; height:16px; cursor:pointer;}
+  .meter-item .mi-name{flex:1; font-size:13.5px; font-weight:600;}
+  .meter-item .mi-reach{font-family:'JetBrains Mono'; font-size:12px; color:#9FB7C2;}
+  .meter-item .mi-price{font-family:'JetBrains Mono'; font-size:12.5px; font-weight:700; color:#fff;}
+  .meter-price-row{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px dashed rgba(255,255,255,0.18); padding-top:16px;
+  }
+  .meter-price-row .lbl{font-size:13px; color:#9FB7C2;}
+  .meter-price-row .val{font-family:'JetBrains Mono'; font-weight:700; font-size:22px; color:var(--coral); }
+  .meter-cta{
+    display:block; text-align:center; margin-top:16px; background:var(--coral); color:white;
+    padding:13px; border-radius:10px; font-weight:700; font-size:14.5px; text-decoration:none;
+  }
+
+  /* SECTION generic */
+  section{max-width:1180px; margin:0 auto; padding:70px 24px;}
+  .section-head{max-width:640px; margin-bottom:36px;}
+  .section-head .tag{font-family:'JetBrains Mono'; font-size:12px; font-weight:700; color:var(--coral); text-transform:uppercase; letter-spacing:0.08em;}
+  .section-head h2{font-size:clamp(26px,3.2vw,36px); font-weight:900; letter-spacing:-0.02em; margin:10px 0 10px;}
+  .section-head p{color:var(--slate); font-size:15.5px; line-height:1.6;}
+
+  /* FILTER CHIPS */
+  .chips{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:28px;}
+  .chip{
+    padding:9px 16px; border-radius:999px; border:1.5px solid var(--line); background:white;
+    font-weight:600; font-size:13.5px; cursor:pointer; color:var(--ink-2);
+  }
+  .chip.active{background:var(--ink); color:white; border-color:var(--ink);}
+
+  /* CATALOG GRID */
+  .grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
+  @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:600px){.grid{grid-template-columns:1fr;}}
+  .card{
+    background:white; border:1px solid var(--line); border-radius:var(--radius); padding:20px;
+    display:flex; flex-direction:column; gap:12px; transition: box-shadow .15s, transform .15s;
+  }
+  .card:hover{box-shadow:0 12px 30px -14px rgba(11,36,56,0.25); transform:translateY(-2px);}
+  .card-top{display:flex; justify-content:space-between; align-items:flex-start;}
+  .card-type{
+    font-family:'JetBrains Mono'; font-size:10.5px; font-weight:700; text-transform:uppercase;
+    color:var(--teal); background:rgba(28,110,119,0.09); padding:4px 9px; border-radius:6px;
+  }
+  .card h4{margin:2px 0 0; font-size:17px; font-weight:800;}
+  .card-metrics{display:flex; gap:18px; font-size:12.5px; color:var(--slate);}
+  .card-metrics b{display:block; font-family:'JetBrains Mono'; font-size:15px; color:var(--ink); font-weight:700;}
+  .card-foot{
+    display:flex; justify-content:space-between; align-items:center;
+    border-top:1px solid var(--line); padding-top:12px; margin-top:auto;
+  }
+  .card-price{font-family:'JetBrains Mono'; font-weight:700; font-size:15.5px; color:var(--coral);}
+  .card-add{
+    background:var(--ink); color:white; border:none; padding:8px 14px; border-radius:8px;
+    font-weight:700; font-size:12.5px; cursor:pointer;
+  }
+  .card-add.added{background:var(--teal);}
+  .interact-tag{font-size:11px; padding:3px 8px; border-radius:6px; font-weight:700;}
+  .interact-good{background:rgba(28,110,119,0.12); color:var(--teal);}
+  .interact-mid{background:rgba(232,93,61,0.1); color:var(--coral-dark);}
+
+  /* HOW IT WORKS */
+  .steps{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media(max-width:820px){.steps{grid-template-columns:1fr;}}
+  .step{border-top:3px solid var(--coral); padding-top:16px;}
+  .step .n{font-family:'JetBrains Mono'; font-size:13px; font-weight:700; color:var(--coral);}
+  .step h4{font-size:18px; font-weight:800; margin:8px 0 8px;}
+  .step p{color:var(--slate); font-size:14.5px; line-height:1.6; margin:0;}
+
+  /* TRUST STRIP */
+  .trust{background:var(--ink-2); color:var(--sand);}
+  .trust-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:24px; text-align:center;}
+  @media(max-width:760px){.trust-grid{grid-template-columns:repeat(2,1fr);}}
+  .trust-grid .num{font-family:'JetBrains Mono'; font-weight:700; font-size:32px; color:white;}
+  .trust-grid .lbl{font-size:13px; color:#9FB7C2; margin-top:6px;}
+
+  /* STICKY CART */
+  .cartbar{
+    position:fixed; left:0; right:0; bottom:0; z-index:60;
+    background:var(--ink); color:white; padding:14px 24px;
+    display:flex; align-items:center; justify-content:space-between;
+    transform:translateY(120%); transition:transform .25s ease;
+    box-shadow:0 -8px 30px rgba(0,0,0,0.25);
+  }
+  .cartbar.show{transform:translateY(0);}
+  .cartbar-info{display:flex; gap:22px; align-items:baseline; flex-wrap:wrap;}
+  .cartbar-info .n{font-family:'JetBrains Mono'; font-weight:700; font-size:19px; color:var(--coral);}
+  .cartbar-info .l{font-size:12.5px; color:#9FB7C2;}
+  .cartbar a.btn-primary{background:var(--coral);}
+
+  footer{background:var(--ink); color:#9FB7C2; padding:50px 24px 90px;}
+  .foot-inner{max-width:1180px; margin:0 auto; display:flex; justify-content:space-between; flex-wrap:wrap; gap:24px;}
+  .foot-inner .logo{color:white;}
+  footer p{font-size:13px; max-width:360px; line-height:1.6;}
+
+  /* MODAL OVERLAY */
+  .modal-overlay{
+    position:fixed; inset:0; z-index:200;
+    background:rgba(11,36,56,0.72); backdrop-filter:blur(6px);
+    display:flex; align-items:center; justify-content:center; padding:20px;
+    opacity:0; pointer-events:none; transition:opacity .25s ease;
+  }
+  .modal-overlay.open{opacity:1; pointer-events:all;}
+  .modal{
+    background:var(--sand); border-radius:20px; width:100%; max-width:560px;
+    max-height:90vh; overflow-y:auto;
+    box-shadow:0 32px 80px -20px rgba(11,36,56,0.55);
+    transform:translateY(20px); transition:transform .25s ease;
+  }
+  .modal-overlay.open .modal{transform:translateY(0);}
+  .modal-head{
+    background:var(--ink); color:white; padding:24px 28px;
+    border-radius:20px 20px 0 0;
+    display:flex; justify-content:space-between; align-items:flex-start;
+  }
+  .modal-head h2{margin:0; font-size:20px; font-weight:900; letter-spacing:-0.02em;}
+  .modal-head p{margin:6px 0 0; font-size:13px; color:#9FB7C2;}
+  .modal-close{
+    background:rgba(255,255,255,0.1); border:none; color:white;
+    width:34px; height:34px; border-radius:50%; font-size:18px; cursor:pointer;
+    flex-shrink:0; display:flex; align-items:center; justify-content:center;
+  }
+  .modal-close:hover{background:rgba(255,255,255,0.2);}
+  .modal-body{padding:28px;}
+  .modal-summary{
+    background:var(--ink-2); color:var(--sand); border-radius:12px;
+    padding:16px 18px; margin-bottom:22px;
+  }
+  .modal-summary .ms-row{
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:13.5px; padding:4px 0;
+  }
+  .modal-summary .ms-row:not(:last-child){border-bottom:1px solid rgba(255,255,255,0.08); padding-bottom:8px; margin-bottom:4px;}
+  .modal-summary .ms-lbl{color:#9FB7C2;}
+  .modal-summary .ms-val{font-family:'JetBrains Mono'; font-weight:700;}
+  .modal-summary .ms-total .ms-val{color:var(--coral); font-size:17px;}
+  .form-group{margin-bottom:18px;}
+  .form-group label{
+    display:block; font-weight:700; font-size:13.5px; margin-bottom:7px; color:var(--ink);
+  }
+  .form-group input, .form-group textarea, .form-group select{
+    width:100%; padding:12px 14px;
+    border:1.5px solid var(--line); border-radius:10px;
+    font-family:'Be Vietnam Pro', sans-serif; font-size:14.5px; color:var(--charcoal);
+    background:white; outline:none;
+    transition:border-color .15s;
+  }
+  .form-group input:focus, .form-group textarea:focus, .form-group select:focus{
+    border-color:var(--teal);
+  }
+  .form-group textarea{resize:vertical; min-height:90px;}
+  .form-row{display:grid; grid-template-columns:1fr 1fr; gap:16px;}
+  @media(max-width:500px){.form-row{grid-template-columns:1fr;}}
+  .form-note{
+    font-size:12.5px; color:var(--slate); margin-top:6px; line-height:1.5;
+  }
+  .btn-submit{
+    width:100%; padding:15px; background:var(--coral); color:white;
+    border:none; border-radius:12px; font-family:'Be Vietnam Pro', sans-serif;
+    font-weight:800; font-size:15.5px; cursor:pointer;
+    transition:background .15s, transform .1s;
+    margin-top:8px;
+  }
+  .btn-submit:hover{background:var(--coral-dark); transform:translateY(-1px);}
+  .btn-submit:disabled{background:#ccc; cursor:not-allowed; transform:none;}
+  .toast{
+    position:fixed; bottom:90px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--teal); color:white; padding:14px 24px; border-radius:12px;
+    font-weight:700; font-size:14px; z-index:300;
+    opacity:0; transition:opacity .25s, transform .25s; pointer-events:none;
+    white-space:nowrap;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+  .toast.error{background:#c0392b;}
+
+  /* PWA INSTALL BANNER */
+  .pwa-banner{
+    position:fixed; bottom:0; left:0; right:0; z-index:500;
+    background:linear-gradient(135deg,#0B2438 0%,#123249 100%);
+    color:white; padding:14px 20px;
+    display:flex; align-items:center; gap:14px;
+    transform:translateY(100%); transition:transform .35s cubic-bezier(.34,1.56,.64,1);
+    box-shadow:0 -8px 30px rgba(0,0,0,0.35);
+  }
+  .pwa-banner.show{transform:translateY(0);}
+  .pwa-banner .pb-icon{
+    width:44px; height:44px; border-radius:12px; overflow:hidden; flex-shrink:0;
+    background:var(--coral); display:flex; align-items:center; justify-content:center;
+    font-weight:900; font-size:20px; letter-spacing:-0.04em;
+  }
+  .pwa-banner .pb-text{flex:1; min-width:0;}
+  .pwa-banner .pb-text strong{display:block; font-size:14px; font-weight:800;}
+  .pwa-banner .pb-text span{font-size:12px; color:#9FB7C2; display:block; margin-top:2px;}
+  .pwa-banner .pb-install{
+    background:var(--coral); color:white; border:none;
+    padding:9px 18px; border-radius:999px;
+    font-family:'Be Vietnam Pro',sans-serif; font-weight:800; font-size:13px;
+    cursor:pointer; white-space:nowrap; flex-shrink:0;
+  }
+  .pwa-banner .pb-install:hover{background:var(--coral-dark);}
+  .pwa-banner .pb-close{
+    background:rgba(255,255,255,0.1); border:none; color:white;
+    width:28px; height:28px; border-radius:50%; cursor:pointer;
+    font-size:14px; display:flex; align-items:center; justify-content:center;
+    flex-shrink:0;
+  }
+  .pwa-banner .pb-close:hover{background:rgba(255,255,255,0.2);}
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="logo"><span class="dot"></span>ZBooking</div>
+    <nav class="nav-links">
+      <a href="#catalog">Kênh quảng cáo</a>
+      <a href="#howitworks">Cách hoạt động</a>
+      <a href="#trust">Độ phủ</a>
+    </nav>
+    <a class="nav-cta" href="#catalog">Xem bảng giá →</a>
+  </div>
+</header>
+
+<div class="hero">
+  <div>
+    <div class="eyebrow">● Mạng lưới Fanpage & Group Miền Trung – Nam Bộ</div>
+    <h1>Đăng quảng cáo lên <em>đúng khu vực</em>, đúng cộng đồng đang chú ý.</h1>
+    <p class="lead">Chọn fanpage & group địa phương phù hợp, gộp nhiều kênh vào một đơn, nhận báo giá tức thì — không cần liên hệ từng trang.</p>
+    <div class="hero-actions">
+      <a class="btn-primary" href="#catalog">Chọn kênh &amp; đặt booking</a>
+      <a class="btn-ghost" href="#howitworks">Xem quy trình</a>
+    </div>
+    <div class="hero-stats">
+      <div><span class="num mono">40+</span><span class="lbl">Kênh đang hợp tác</span></div>
+      <div><span class="num mono">3.2M+</span><span class="lbl">Tổng follow/thành viên</span></div>
+      <div><span class="num mono">18</span><span class="lbl">Tỉnh thành phủ sóng</span></div>
+    </div>
+  </div>
+
+  <div class="meter-card" id="meter">
+    <div class="meter-head"><h3>Máy tính độ phủ</h3><span>LIVE</span></div>
+    <div class="meter-total" id="meterReach">0</div>
+    <div class="meter-sub">người tiếp cận ước tính · chọn kênh bên dưới</div>
+    <div class="meter-list" id="meterList"></div>
+    <div class="meter-price-row">
+      <span class="lbl">Tổng phí booking</span>
+      <span class="val mono" id="meterPrice">0 đ</span>
+    </div>
+    <a class="meter-cta" href="#catalog">Xem toàn bộ danh sách kênh →</a>
+  </div>
+</div>
+
+<section id="catalog">
+  <div class="section-head">
+    <span class="tag">Danh sách kênh</span>
+    <h2>Chọn kênh phù hợp với khu vực &amp; ngân sách</h2>
+    <p>Số liệu follow/tương tác cập nhật theo báo giá đối tác. Chọn nhiều kênh — tổng phí tự cộng dồn ở thanh dưới cùng.</p>
+  </div>
+
+  <div class="chips">
+    <button class="chip active" data-f="all">Tất cả</button>
+    <button class="chip" data-f="local">Page Local</button>
+    <button class="chip" data-f="group">Group</button>
+    <button class="chip" data-f="giaitri">Giải trí</button>
+  </div>
+
+  <div class="grid" id="grid"></div>
+</section>
+
+<section id="howitworks">
+  <div class="section-head">
+    <span class="tag">Quy trình</span>
+    <h2>Từ chọn kênh đến bài đăng — 3 bước</h2>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="n">BƯỚC 1</div>
+      <h4>Chọn kênh &amp; gửi nội dung</h4>
+      <p>Chọn một hoặc nhiều kênh, đính kèm nội dung muốn đăng và ngày mong muốn. Hệ thống báo tổng phí ngay.</p>
+    </div>
+    <div class="step">
+      <div class="n">BƯỚC 2</div>
+      <h4>Thanh toán &amp; xác nhận</h4>
+      <p>Chuyển khoản theo báo giá hiển thị. Đơn được xác nhận và chuyển sang xử lý trong vòng vài giờ.</p>
+    </div>
+    <div class="step">
+      <div class="n">BƯỚC 3</div>
+      <h4>Đăng bài &amp; báo cáo</h4>
+      <p>Bài được đăng đúng lịch trên các kênh đã chọn, gửi lại link minh chứng cho khách.</p>
+    </div>
+  </div>
+</section>
+
+<section class="trust" id="trust" style="max-width:none;">
+  <div style="max-width:1180px; margin:0 auto; padding:0 24px;">
+    <div class="section-head" style="max-width:600px;">
+      <span class="tag" style="color:var(--coral);">Độ phủ mạng lưới</span>
+      <h2 style="color:white;">Không chỉ là quảng cáo — là cộng đồng địa phương thật</h2>
+    </div>
+    <div class="trust-grid">
+      <div><div class="num">18</div><div class="lbl">Tỉnh / thành</div></div>
+      <div><div class="num">40+</div><div class="lbl">Fanpage &amp; Group</div></div>
+      <div><div class="num">3.2M+</div><div class="lbl">Follow / thành viên</div></div>
+      <div><div class="num">24h</div><div class="lbl">Thời gian xử lý đơn</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="logo"><span class="dot"></span>ZBooking</div>
+      <p style="margin-top:12px;">Kênh đặt quảng cáo trên mạng lưới fanpage &amp; group địa phương — Long Hải, BR-VT và các tỉnh lân cận.</p>
+    </div>
+    <div>
+      <p>Liên hệ đặt booking qua Zalo hoặc form phía trên.<br>Báo giá minh bạch, xử lý trong 24h.</p>
+    </div>
+  </div>
+</footer>
+
+<div class="cartbar" id="cartbar">
+  <div class="cartbar-info">
+    <div><span class="n mono" id="cartCount">0</span> <span class="l">kênh đã chọn</span></div>
+    <div><span class="n mono" id="cartTotal">0 đ</span> <span class="l">tổng phí booking</span></div>
+  </div>
+  <button class="btn-primary" id="btnOpenModal" style="background:var(--coral);border:none;cursor:pointer;">Tiến hành đặt booking →</button>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal">
+    <div class="modal-head">
+      <div>
+        <h2>Xác nhận đặt booking</h2>
+        <p id="modalSubtitle">Vui lòng điền thông tin để hoàn tất đơn</p>
+      </div>
+      <button class="modal-close" id="modalClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="modal-summary" id="modalSummary"></div>
+      <form id="bookingForm" novalidate>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f_name">Họ và tên *</label>
+            <input type="text" id="f_name" placeholder="Nguyễn Văn A" required>
+          </div>
+          <div class="form-group">
+            <label for="f_phone">Số điện thoại / Zalo *</label>
+            <input type="tel" id="f_phone" placeholder="0909 xxx xxx" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f_business">Tên thương hiệu / sản phẩm *</label>
+          <input type="text" id="f_business" placeholder="Ví dụ: Quán Cafe Biển Đông" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="f_date">Ngày đăng mong muốn *</label>
+            <input type="date" id="f_date" required>
+          </div>
+          <div class="form-group">
+            <label for="f_format">Định dạng nội dung</label>
+            <select id="f_format">
+              <option value="Ảnh + Caption">Ảnh + Caption</option>
+              <option value="Video Reels">Video Reels</option>
+              <option value="Ảnh Carousel">Ảnh Carousel</option>
+              <option value="Bài viết text">Bài viết text</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="f_note">Nội dung / yêu cầu thêm</label>
+          <textarea id="f_note" placeholder="Mô tả sản phẩm, link bài mẫu, hoặc yêu cầu đặc biệt..."></textarea>
+        </div>
+        <p class="form-note">✔ Sau khi gửi, chúng tôi sẽ phản hồi qua Zalo trong vòng <strong>2 giờ làm việc</strong>.</p>
+        <button type="submit" class="btn-submit" id="btnSubmit">Gửi đơn đặt booking →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// Sample data drawn from partner rate card
+const PAGES = [
+  {id:1, name:"Vũng Tàu", type:"local", reach:332000, interact:"Tốt", price:2500000},
+  {id:2, name:"Bình Thuận", type:"local", reach:207000, interact:"Tốt", price:2000000},
+  {id:3, name:"Bình Phước", type:"local", reach:201000, interact:"Tốt", price:2000000},
+  {id:4, name:"Dân Long An", type:"local", reach:241000, interact:"Tốt", price:2000000},
+  {id:5, name:"Đồng Nai", type:"local", reach:291000, interact:"Tốt", price:2000000},
+  {id:6, name:"Đà Nẵng (Yêu Đà Nẵng)", type:"local", reach:191000, interact:"Tốt", price:2000000},
+  {id:7, name:"Bình Dương 24h", type:"local", reach:87000, interact:"Tốt", price:2000000},
+  {id:8, name:"Tây Ninh", type:"local", reach:182000, interact:"Tốt", price:2000000},
+  {id:9, name:"Sài Gòn Confession", type:"giaitri", reach:558000, interact:"Tốt", price:2000000},
+  {id:10, name:"Toàn Cảnh Showbiz", type:"giaitri", reach:404000, interact:"Tốt", price:2500000},
+  {id:11, name:"Nhịp Sống Mỗi Ngày", type:"giaitri", reach:303000, interact:"Tốt", price:2000000},
+  {id:12, name:"Chuyện Công Sở", type:"giaitri", reach:144000, interact:"Tốt", price:2000000},
+  {id:13, name:"Hóng Hớt Vũng Tàu (Group)", type:"group", reach:46387, interact:"Tốt", price:1200000},
+  {id:14, name:"Dân Long An (Group)", type:"group", reach:7543, interact:"Tốt", price:800000},
+  {id:15, name:"Hóng Bình Thuận (Group)", type:"group", reach:9787, interact:"Tốt", price:800000},
+  {id:16, name:"Hóng Đồng Nai (Group)", type:"group", reach:2317, interact:"Trung Bình", price:600000},
+];
+
+const grid = document.getElementById('grid');
+const chips = document.querySelectorAll('.chip');
+let selected = new Set();
+
+function fmt(n){ return n.toLocaleString('vi-VN'); }
+function fmtVnd(n){ return fmt(n) + ' đ'; }
+
+function typeLabel(t){
+  return {local:"Page Local", giaitri:"Giải Trí", group:"Group"}[t];
+}
+
+function renderGrid(filter='all'){
+  grid.innerHTML = '';
+  PAGES.filter(p => filter==='all' || p.type===filter).forEach(p => {
+    const el = document.createElement('div');
+    el.className = 'card';
+    const isAdded = selected.has(p.id);
+    el.innerHTML = `
+      <div class="card-top">
+        <span class="card-type">${typeLabel(p.type)}</span>
+        <span class="interact-tag ${p.interact==='Tốt'?'interact-good':'interact-mid'}">${p.interact}</span>
+      </div>
+      <h4>${p.name}</h4>
+      <div class="card-metrics">
+        <div>Follow/Member<b class="mono">${fmt(p.reach)}</b></div>
+      </div>
+      <div class="card-foot">
+        <span class="card-price mono">${fmtVnd(p.price)}</span>
+        <button class="card-add ${isAdded?'added':''}" data-id="${p.id}">${isAdded?'✓ Đã chọn':'+ Thêm'}</button>
+      </div>
+    `;
+    grid.appendChild(el);
+  });
+  grid.querySelectorAll('.card-add').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const id = Number(btn.dataset.id);
+      if(selected.has(id)) selected.delete(id); else selected.add(id);
+      renderGrid(currentFilter);
+      renderMeter();
+      renderCart();
+    });
+  });
+}
+
+let currentFilter = 'all';
+chips.forEach(chip => {
+  chip.addEventListener('click', () => {
+    chips.forEach(c=>c.classList.remove('active'));
+    chip.classList.add('active');
+    currentFilter = chip.dataset.f;
+    renderGrid(currentFilter);
+  });
+});
+
+// Hero meter — uses top 4 sample channels as toggles
+const meterList = document.getElementById('meterList');
+const meterSample = PAGES.slice(0,4);
+function renderMeterList(){
+  meterList.innerHTML = '';
+  meterSample.forEach(p => {
+    const row = document.createElement('label');
+    row.className = 'meter-item';
+    row.innerHTML = `
+      <input type="checkbox" data-id="${p.id}" ${selected.has(p.id)?'checked':''}>
+      <span class="mi-name">${p.name}</span>
+      <span class="mi-reach mono">${fmt(p.reach)}</span>
+      <span class="mi-price mono">${fmtVnd(p.price)}</span>
+    `;
+    meterList.appendChild(row);
+  });
+  meterList.querySelectorAll('input').forEach(inp => {
+    inp.addEventListener('change', () => {
+      const id = Number(inp.dataset.id);
+      if(inp.checked) selected.add(id); else selected.delete(id);
+      renderGrid(currentFilter);
+      renderMeter();
+      renderCart();
+    });
+  });
+}
+
+function renderMeter(){
+  const chosen = PAGES.filter(p => selected.has(p.id));
+  const reach = chosen.reduce((s,p)=>s+p.reach,0);
+  const price = chosen.reduce((s,p)=>s+p.price,0);
+  document.getElementById('meterReach').textContent = fmt(reach);
+  document.getElementById('meterPrice').textContent = fmtVnd(price);
+  renderMeterList();
+}
+
+function renderCart(){
+  const bar = document.getElementById('cartbar');
+  const chosen = PAGES.filter(p => selected.has(p.id));
+  document.getElementById('cartCount').textContent = chosen.length;
+  document.getElementById('cartTotal').textContent = fmtVnd(chosen.reduce((s,p)=>s+p.price,0));
+  bar.classList.toggle('show', chosen.length>0);
+}
+
+renderGrid();
+renderMeter();
+renderCart();
+
+// ── MODAL ──────────────────────────────────────────────
+const TBOT = '8210595722:AAEhic6L4g9U3v2EddZwRIcFwGg-a52VT24';
+const TCHAT = '840754726';
+
+const overlay = document.getElementById('modalOverlay');
+const btnOpen = document.getElementById('btnOpenModal');
+const btnClose = document.getElementById('modalClose');
+const form = document.getElementById('bookingForm');
+const toast = document.getElementById('toast');
+
+function showToast(msg, isError){
+  toast.textContent = msg;
+  toast.className = 'toast' + (isError?' error':'');
+  toast.classList.add('show');
+  setTimeout(()=>toast.classList.remove('show'), 4000);
+}
+
+function buildModalSummary(){
+  const chosen = PAGES.filter(p=>selected.has(p.id));
+  const totalReach = chosen.reduce((s,p)=>s+p.reach,0);
+  const totalPrice = chosen.reduce((s,p)=>s+p.price,0);
+  const channelLines = chosen.map(p=>`<div class="ms-row"><span class="ms-lbl">${p.name}</span><span class="ms-val">${fmtVnd(p.price)}</span></div>`).join('');
+  document.getElementById('modalSummary').innerHTML = channelLines +
+    `<div class="ms-row ms-total" style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.2)">
+       <span class="ms-lbl">👥 Tổng reach ước tính</span><span class="ms-val">${fmt(totalReach)}</span>
+     </div>
+     <div class="ms-row ms-total">
+       <span class="ms-lbl">💰 Tổng phí booking</span><span class="ms-val">${fmtVnd(totalPrice)}</span>
+     </div>`;
+  document.getElementById('modalSubtitle').textContent = `${chosen.length} kênh · ${fmtVnd(totalPrice)}`;
+}
+
+btnOpen.addEventListener('click', ()=>{
+  buildModalSummary();
+  // default date = tomorrow
+  const tomorrow = new Date(); tomorrow.setDate(tomorrow.getDate()+1);
+  document.getElementById('f_date').value = tomorrow.toISOString().split('T')[0];
+  overlay.classList.add('open');
+  document.body.style.overflow='hidden';
+});
+
+function closeModal(){
+  overlay.classList.remove('open');
+  document.body.style.overflow='';
+}
+btnClose.addEventListener('click', closeModal);
+overlay.addEventListener('click', e=>{ if(e.target===overlay) closeModal(); });
+
+form.addEventListener('submit', async e=>{
+  e.preventDefault();
+  const name = document.getElementById('f_name').value.trim();
+  const phone = document.getElementById('f_phone').value.trim();
+  const business = document.getElementById('f_business').value.trim();
+  const date = document.getElementById('f_date').value;
+  const format = document.getElementById('f_format').value;
+  const note = document.getElementById('f_note').value.trim();
+  if(!name||!phone||!business||!date){
+    showToast('⚠️ Vui lòng điền đầy đủ các trường bắt buộc!', true);
+    return;
+  }
+  const chosen = PAGES.filter(p=>selected.has(p.id));
+  const totalPrice = chosen.reduce((s,p)=>s+p.price,0);
+  const totalReach = chosen.reduce((s,p)=>s+p.reach,0);
+  const channelList = chosen.map((p,i)=>`  ${i+1}. ${p.name} — ${fmtVnd(p.price)}`).join('\n');
+  const now = new Date().toLocaleString('vi-VN',{timeZone:'Asia/Ho_Chi_Minh'});
+  const msg = `🔔 *ĐƠN BOOKING MỚI — ZBooking*
+━━━━━━━━━━━━━━━━━━━
+👤 *Khách hàng:* ${name}
+📞 *Liên hệ:* ${phone}
+🏢 *Thương hiệu:* ${business}
+📅 *Ngày đăng mong muốn:* ${date}
+🎨 *Định dạng:* ${format}
+
+📡 *Kênh đã chọn (${chosen.length} kênh):*
+${channelList}
+
+👥 Tổng reach ước tính: *${fmt(totalReach)}*
+💰 Tổng phí: *${fmtVnd(totalPrice)}*
+
+📝 *Ghi chú:* ${note||'(không có)'}
+
+🕐 Gửi lúc: ${now}`;
+  const btn = document.getElementById('btnSubmit');
+  btn.disabled = true;
+  btn.textContent = 'Đang gửi...';
+  try{
+    const res = await fetch(`https://api.telegram.org/bot${TBOT}/sendMessage`,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify({chat_id:TCHAT, text:msg, parse_mode:'Markdown'})
+    });
+    const data = await res.json();
+    if(data.ok){
+      closeModal();
+      showToast('✅ Đơn đặt booking đã gửi thành công! Chúng tôi sẽ phản hồi sớm.');
+      form.reset();
+      selected.clear();
+      renderGrid(); renderMeter(); renderCart();
+    } else {
+      throw new Error(data.description||'Telegram error');
+    }
+  } catch(err){
+    showToast('❌ Gửi thất bại: '+err.message, true);
+  } finally{
+    btn.disabled=false;
+    btn.textContent='Gửi đơn đặt booking →';
+  }
+});
+</script>
+
+<!-- PWA INSTALL BANNER HTML -->
+<div class="pwa-banner" id="pwaBanner">
+  <div class="pb-icon">Z.</div>
+  <div class="pb-text">
+    <strong>Cài đặt ZBooking</strong>
+    <span>Thêm vào màn hình chính — dùng như app, offline OK</span>
+  </div>
+  <button class="pb-install" id="pwaInstallBtn">Cài ngay</button>
+  <button class="pb-close" id="pwaClose">✕</button>
+</div>
+
+<script>
+// ── SERVICE WORKER ───────────────────────────────────
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js', { scope: '/' })
+      .then(reg => console.log('[ZBooking] SW registered:', reg.scope))
+      .catch(err => console.warn('[ZBooking] SW registration failed:', err));
+  });
+}
+
+// ── PWA INSTALL PROMPT ─────────────────────────
+let deferredPrompt = null;
+const pwaBanner = document.getElementById('pwaBanner');
+const pwaInstallBtn = document.getElementById('pwaInstallBtn');
+const pwaClose = document.getElementById('pwaClose');
+
+window.addEventListener('beforeinstallprompt', e => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show banner after 3s if not already installed
+  if (!localStorage.getItem('pwa-dismissed')) {
+    setTimeout(() => pwaBanner.classList.add('show'), 3000);
+  }
+});
+
+pwaInstallBtn.addEventListener('click', async () => {
+  if (!deferredPrompt) return;
+  deferredPrompt.prompt();
+  const { outcome } = await deferredPrompt.userChoice;
+  if (outcome === 'accepted') {
+    showToast('✅ ZBooking đã được cài đặt thành công!');
+  }
+  deferredPrompt = null;
+  pwaBanner.classList.remove('show');
+});
+
+pwaClose.addEventListener('click', () => {
+  pwaBanner.classList.remove('show');
+  localStorage.setItem('pwa-dismissed', '1');
+});
+
+window.addEventListener('appinstalled', () => {
+  pwaBanner.classList.remove('show');
+  deferredPrompt = null;
+  console.log('[ZBooking] PWA installed');
+});
+</script>
+
+</body>
+</html>
